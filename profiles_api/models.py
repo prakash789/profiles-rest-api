@@ -4,9 +4,10 @@ from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.models import BaseUserManager
 
+
 class UserProfileManager(BaseUserManager):
     """Manager for user profiles"""
-    def Create_user(self,email,name,password=None):
+    def create_user(self,email,name,password=None):
         """Create new user in profile"""
         if not email:
             raise ValueError('user must have email id')
@@ -52,5 +53,3 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         """Return string representation of user"""
         return self.email
-
-# Create your models here.
